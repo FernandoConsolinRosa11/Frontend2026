@@ -1,21 +1,25 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import carCardOne from "../../../assets/images/carCardOne.png";
-import carCardTwo from "../../../assets/images/carCardTwo.png";
+import Ferrari from "../../../assets/images/Ferrari.png";
+import Revuelto from "../../../assets/images/Revuelto.png";
 import carCardThree from "../../../assets/images/carCardThree.png";
 import carCardFour from "../../../assets/images/carCardFour.png";
+import BuggatiReSide from "../../../assets/images/BuggatiReSide.png";
+import LamboReside from "../../../assets/images/LamboReside.png";
 
 const cars = [
-  { name: "Ferrari", img: carCardOne, slogan: "YOU CAN'T HIDE WHO YOU ARE" },
-  { name: "REVUELTO", img: carCardTwo, slogan: "FROM NOW ON" },
+  { name: "Ferrari", img: Ferrari, slogan: "YOU CAN'T HIDE WHO YOU ARE" },
+  { name: "REVUELTO", img: Revuelto, slogan: "FROM NOW ON" },
   { name: "SF90 Stradale", img: carCardThree, slogan: "SEILÁ FODASE" },
   { name: "Huayra Roadster ", img: carCardFour, slogan: "CARRO FODA" },
+  { name: "Buggati Chiron ", img: BuggatiReSide, slogan: "CARRO FODASE" },
+  { name: "Huracan ", img: LamboReside, slogan: "CARRAO"},
 ];
 
 export default function CarCarousel() {
   return (
-    <div className="justify-self-center w-100 overflow-hidden">
+    <div className="justify-self-center w-100 vh-300 overflow-hidden">
       <div className="relative  bg-white py-10 ">
         <Swiper
           modules={[Navigation]}
