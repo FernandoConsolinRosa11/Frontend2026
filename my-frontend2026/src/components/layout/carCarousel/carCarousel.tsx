@@ -19,15 +19,15 @@ const cars = [
 
 export default function CarCarousel() {
   return (
-    <div className="justify-self-center w-100 vh-300 overflow-hidden">
+    <div className="justify-self-center w-full vh-300 overflow-hidden">
       <div className="relative  bg-white py-10 ">
         <Swiper
           modules={[Navigation]}
-          spaceBetween={30}
-          slidesPerView={2.5}
+          spaceBetween={15}
+          slidesPerView={2}
           centeredSlides={true}
           loop={true}
-          wrapperClass="flex justify-self-center m-auto"
+          wrapperClass="flex justify-self-center m-auto "
           navigation={{
             nextEl: ".button-next",
             prevEl: ".button-prev",
@@ -51,16 +51,16 @@ export default function CarCarousel() {
                   <img
                     src={car.img}
                     alt={car.name}
-                    className="w-full max-w-4xl object-contain scale-110 "
+                    className="w-full max-w-4xl object-contain scale-90"
                   />
 
                   <div
                     className={`flex gap-4 mt-10 transition-opacity ${isActive ? "opacity-100" : "opacity-0"}`}
                   >
-                    <button className="bg-[#8b7300] text-white px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-black transition-all">
+                    <button className="bg-[#C59958] text-white px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] transition-all">
                       Explore the model <span>→</span>
                     </button>
-                    <button className="border border-black px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-black hover:text-white transition-all">
+                    <button className="border border-[#121212] px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] hover:text-white transition-all">
                       Download Brochure <span>↓</span>
                     </button>
                   </div>
@@ -69,10 +69,10 @@ export default function CarCarousel() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <button className="button-prev absolute left-10 top-1/2 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-full hover:bg-black hover:text-white transition-all">
+        <button className="button-prev absolute left-10 top-1/2 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-full hover:bg-[#121212] hover:text-white transition-all">
           ←
         </button>
-        <button className="button-next absolute right-10 top-1/2 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-full hover:bg-black hover:text-white transition-all">
+        <button className="button-next absolute right-10 top-1/2 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-full hover:bg-[#121212] hover:text-white transition-all">
           →
         </button>
       </div>
