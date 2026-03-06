@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home/Index";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import { Home, Login, Register } from "../pages";
 
 export default function AppRoutes() {
     return(
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="*" element={<ErrorPage/>} />
+            <Route path="/Login" element={<Login/>} />
+            <Route path="/Register" element={<Register/>} />
         </Routes>
     )
 }

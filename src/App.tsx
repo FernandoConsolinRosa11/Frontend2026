@@ -1,14 +1,23 @@
-import { Routes } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
-import Navbar from './layout/Navbar';
-import './app.css'
+import { Navbar, Footer } from './layout';
+import { useLocation } from "react-router-dom";
+import './App.css'
 
 function App() {
 
+  const location = useLocation();
+
+  const esconderLayout =
+    location.pathname === "/Login" ||
+    location.pathname === "/Register";
+
   return (
     <>
-      <Navbar />
+      {!esconderLayout && <Navbar />}
+
       <AppRoutes />
+
+      {!esconderLayout && <Footer/>}
     </>
   );
 }

@@ -1,26 +1,43 @@
+import { Link } from "react-router-dom";
 import Logo from "../assets/icons/logo.png";
-import { Link } from 'react-router-dom';
+import Menu from "./Menu";
+import Button from "../components/Button";
+import { useState } from "react";
 
-export default function Navbar(){
-    return (
-    <>
-      <nav className="font-medium bg-[#121212] shadow-2xl py-3">
-        <div className="container-fluid flex items-center justify-between">
-          <div className="flex-1  flex justify-start mx-2">
-            <Link className="text-white text-decoration-none text-[20px]" to=''>
-              <i className="bi bi-list"></i>
-              Menu
-            </Link>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <Link to='/'><img src={Logo} alt="logo" className="text-center w-25 m-auto" /></Link>
-          </div>
-          <div className="flex-1 flex justify-end gap-6 text-sm uppercase tracking-widest mx-2">
-            <Link to='/abacate' className=" text-white text-decoration-none">login</Link>
-            <Link to=''  className=" text-white text-decoration-none">cadastro</Link>
-          </div>
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav className="font-medium bg-[#121212] shadow-2xl py-3">
+      <div className="container-fluid flex items-center justify-between">
+        <div className="flex-1 flex justify-start mx-2 relative">
+          <Button
+            texto="Menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-white flex items-center gap-2 text-[20px]"
+          />
+          {menuOpen && <Menu />}
         </div>
-      </nav>
-    </>
+
+        <div className="flex-1 flex justify-center">
+          <img src={Logo} alt="logo" className="text-center w-25" />
+        </div>
+
+        <div className="flex-1 flex justify-end gap-6 text-sm uppercase tracking-widest mx-2">
+          <Link to="/Login" className="text-white text-decoration-none">
+            Login
+          </Link>
+          <Link to="/Register" className="text-white text-decoration-none">
+            Cadastro
+          </Link>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <div className="mt-2 px-2">
+          <Menu />
+        </div>
+      )}
+    </nav>
   );
 }
