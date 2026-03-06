@@ -10,12 +10,12 @@ export default function BannerVideo() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/dGjBdYVNqHs?si=_rL93LVS8_gyTzOG" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/dGjBdYVNqHs?si=_rL93LVS8_gyTzOG" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
 
                     </div>
                     <div className="carousel-item">
-                        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/fdS1ZQ7WJMk?si=CITowxDwgFl6zPMD" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/fdS1ZQ7WJMk?si=CITowxDwgFl6zPMD" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                     </div>
                     <div className="carousel-item">
 

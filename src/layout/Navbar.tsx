@@ -14,9 +14,9 @@ export default function Navbar() {
           <Button
             texto="Menu"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white flex items-center gap-2 text-[20px]"
+            className="text-white flex items-center gap-2 text-[20px] bi bi-list"
           />
-          {menuOpen && <Menu />}
+         
         </div>
 
         <div className="flex-1 flex justify-center">
@@ -25,10 +25,16 @@ export default function Navbar() {
 
         <div className="flex-1 flex justify-end gap-6 text-sm uppercase tracking-widest mx-2">
           <Link to="/Login" className="text-white text-decoration-none">
-            Login
+            <Button
+              texto="Login"
+              className="text-white flex items-center gap-2 text-[20px] "
+            />
           </Link>
           <Link to="/Register" className="text-white text-decoration-none">
-            Cadastro
+           <Button
+              texto="Cadastro"
+              className="text-white flex items-center gap-2 text-[20px] "
+            />
           </Link>
         </div>
       </div>
