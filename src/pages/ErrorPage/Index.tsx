@@ -1,5 +1,4 @@
-
-export function ErrorPage() {
+export default function ErrorPage() {
     return (
         <>
             <div>
@@ -7,7 +6,5 @@ export function ErrorPage() {
             </div>
 
         </>
-    )
+    );
 }
-
-export default ErrorPage

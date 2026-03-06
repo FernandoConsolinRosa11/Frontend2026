@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Login, Register } from "../pages";
+import { Home, Login, Register , ErrorPage} from "../pages";
 
 export default function AppRoutes() {
     return(

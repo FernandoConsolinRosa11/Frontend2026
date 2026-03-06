@@ -8,5 +8,5 @@ export default function Home(){
             <BannerVideo/>
             <CarrouselCar/>
         </div>
-    )
+    );
 }
