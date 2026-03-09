@@ -1,11 +1,16 @@
+.register-bg {
+  background-image: url("../assets/login_RegisterWallpaper.jpg");
+  background-size: cover;
+  background-position: center ;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+}
 
 .glass-form {
-  background: rgba(255, 255, 255, 0.014); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
-  border: 1px solid rgb(255, 255, 255, 0.014);
+  background: #12121298;
+  backdrop-filter: none;
   border-radius: 12px;
-  box-shadow: 0 0px 25px 10px rgb(5, 5, 5);
   padding: 40px;
   width: 90%;
   max-width: 600px;

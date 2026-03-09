@@ -55,10 +55,10 @@ export default function CarrouselCar() {
                   <div
                     className={`flex gap-4 mt-10 transition-opacity ${isActive ? "opacity-100" : "opacity-0"}`}
                   >
-                    <button className="bg-[#C59958] text-white px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] transition-all  p-2">
+                    <button className="bg-[#C59958] text-white px-4 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] transition-all  ">
                       Explorar Modelo <span>→</span>
                     </button>
-                    <button className="border border-[#121212] px-8 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] hover:text-white transition-all p-2">
+                    <button className="border border-[#121212] px-4 py-3 font-bold uppercase text-xs flex items-center gap-2 hover:bg-[#121212] hover:text-white transition-all ">
                       Ver Mais <span>↓</span>
                     </button>
                   </div>
@@ -67,10 +67,10 @@ export default function CarrouselCar() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <button className="button-prev absolute left-10 top-1/3 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-sm hover:bg-[#121212] hover:text-white transition-all">
+        <button className="button-prev absolute left-10 top-1/3 -translate-y-1/12 z-10 border border-gray-400 p-4 rounded-sm hover:bg-[#121212] hover:text-white transition-all">
           ←
         </button>
-        <button className="button-next absolute right-10 top-1/3 -translate-y-1/2 z-10 border border-gray-400 p-4 rounded-sm hover:bg-[#121212] hover:text-white transition-all">
+        <button className="button-next absolute right-10 top-1/3 -translate-y-1/12 z-10 border border-gray-400 p-4 rounded-sm hover:bg-[#121212] hover:text-white transition-all">
           →
         </button>
       </div>
