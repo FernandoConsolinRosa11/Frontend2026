@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen w-full bg-[#121212] flex justify-end   relative overflow-hidden">
-  
+    <div className="min-h-screen w-full bg-[#121212] flex justify-end  relative overflow-hidden">
       <div className="absolute inset-0 register-bg opacity-50" />
       <form className="flex-col gap-9 flex w-full glass-form m-5 scale-75 py-10">
         <h3 className="m-auto text-white">Crie seu perfil</h3>
