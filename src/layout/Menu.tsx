@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-export default function Menu() {
-  return (
-    <div>
-      
-=======
 import { FaChevronRight } from "react-icons/fa";
 import "./menu.css";
 
@@ -45,7 +39,6 @@ export default function Menu() {
 
         </div>
       </div>
->>>>>>> Stashed changes
     </div>
   );
 }
