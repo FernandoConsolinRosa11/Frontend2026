@@ -1,19 +1,43 @@
-import Button from "../components/Button";
+import { FaChevronRight } from "react-icons/fa";
+import "./menu.css";
 
 export default function Menu() {
   return (
-    <div className="flex p-3  text-white" data-aos="fade-down">
-      <div className="mx-3">
-        <Button
-          texto="Comprar"
-          className="text-white flex items-start gap-2 text-[20px] "
-        />
-      </div>
-      <div className="mx-3">
-        <Button
-          texto="Categorias"
-          className="text-white flex items-start gap-2 text-[20px] "
-        />
+    <div className="h-[30vh] bg-fundo w-full absolute z-40 left-0 top-full">
+      <div className="container mx-auto px-6 h-[20vh]">
+        <div className="grid grid-cols-3 gap-5 py-4 w-full content-center h-full">
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>MODELO</span>
+            <FaChevronRight />
+          </div>
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>EXPLORe</span>
+            <FaChevronRight />
+          </div>
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>CARRO</span>
+            <FaChevronRight />
+          </div>
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>CATEGORIA</span>
+            <FaChevronRight />
+          </div>
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>MAE DO HIAGO</span>
+            <FaChevronRight />
+          </div>
+
+          <div className="flex justify-between items-center animation me-4">
+            <span>seis coisa</span>
+            <FaChevronRight />
+          </div>
+
+        </div>
       </div>
     </div>
   );
