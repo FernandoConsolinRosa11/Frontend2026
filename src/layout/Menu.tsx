@@ -13,17 +13,17 @@ export default function Menu() {
           </div>
 
           <div className="flex justify-between items-center animation me-4">
-            <span>EXPLORAR</span>
+            <span>EXPLORe</span>
             <FaChevronRight />
           </div>
 
           <div className="flex justify-between items-center animation me-4">
-            <span>CARROS</span>
+            <span>CARRO</span>
             <FaChevronRight />
           </div>
 
           <div className="flex justify-between items-center animation me-4">
-            <span>CATEGORIAS</span>
+            <span>CATEGORIA</span>
             <FaChevronRight />
           </div>
 
