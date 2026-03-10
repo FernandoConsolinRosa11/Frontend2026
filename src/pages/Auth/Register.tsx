@@ -5,30 +5,30 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen w-full bg-[#121212] flex justify-end  relative overflow-hidden">
-      <div className="absolute inset-0 register-bg opacity-50" />
-      <form className="flex-col gap-9 flex w-full glass-form m-5 scale-75 py-10">
-        <h3 className="m-auto text-white">Crie seu perfil</h3>
+    <div className="min-h-screen w-full bg-[#121212] flex justify-end items-center  overflow-hidden ">
+      <div className="absolute inset-0 register-bg py-10!" />
+      <form className="flex-col gap-9 flex w-full glass-form m-6! scale-80  backdrop-blur-xl! border border-white/10! ">
+        <h3 className="m-auto text-white">Associe-se à Prime Motors</h3>
         <input
-          className="p-2 bg-white rounded"
+          className="p-2 bg-white rounded-sm"
           type="text"
           name="nome"
           placeholder="Nome completo"
         />
         <input
-          className="p-2 bg-white rounded"
+          className="p-2 bg-white rounded-sm"
           type="text"
           name="cpf"
           placeholder="CPF"
         />
         <input
-          className="p-2 bg-white rounded"
+          className="p-2 bg-white rounded-sm"
           type="email"
           name="email"
           placeholder="Email"
         />
         <input
-          className="p-2 bg-white rounded mb-2"
+          className="p-2 bg-white rounded-sm mb-2"
           type="password"
           name="senha"
           placeholder="Senha"
@@ -36,7 +36,7 @@ export default function Register() {
         <div className="grid grid-cols-3 items-center w-full">
           <Button
             texto=" ← "
-            className="text-white justify-self-start  gap-2 text-[20px]  rounded-3xl "
+            className="text-white justify-self-start  gap-2 text-[20px] "
             onClick={() => navigate("/")}
           />
           <Button

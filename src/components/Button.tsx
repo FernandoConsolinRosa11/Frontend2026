@@ -11,7 +11,7 @@ export default function Button({ texto, onClick, className }: ButtonProps) {
       className={`
         cursor-pointer
         px-4 py-2
-        rounded
+        rounded-sm
         transition
         hover:bg-gray-700
         active:scale-95
