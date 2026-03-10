@@ -8,7 +8,7 @@ export default function Menu() {
         <div className="grid grid-cols-3 gap-5 py-4 w-full content-center h-full">
 
           <div className="flex justify-between items-center animation me-4">
-            <span>MODELOS</span>
+            <span>MODELO</span>
             <FaChevronRight />
           </div>
 
