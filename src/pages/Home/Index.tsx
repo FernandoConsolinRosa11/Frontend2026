@@ -1,6 +1,5 @@
-import CarrouselCar from "./Components/BannerCar"
-import "../../app.css"
-import BannerVideo from "./Components/BannerVideo"
+import CarrouselCar from "./Components/BannerCar";
+import BannerVideo from "./Components/BannerVideo";
 
 export default function Home(){
     return(
