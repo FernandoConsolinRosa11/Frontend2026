@@ -1,4 +1,4 @@
-import "../Auth/css/Register.css";
+import "../Auth/css/auth.css";
 import Button from "../../components/Button.tsx";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../../components/checkbox.tsx";

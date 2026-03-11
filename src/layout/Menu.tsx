@@ -13,7 +13,7 @@ export default function Menu() {
           </div>
 
           <div className="flex justify-between items-center animation me-4">
-            <span>EXPLORe</span>
+            <span>EXPLORAR</span>
             <FaChevronRight />
           </div>
 
