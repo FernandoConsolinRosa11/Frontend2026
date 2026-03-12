@@ -1,53 +1,10 @@
-<<<<<<< Updated upstream
-import "../Auth/css/Register.css"
-
-export default function Register() {
-    return (
-            <div className="flex justify-center items-center register-bg min-h-screen">
-                <form className="flex-col gap-8 flex w-full glass-form">
-                    <input
-                        className="p-2 bg-white form-redondo"
-                        type="text"
-                        name="nome"
-                        placeholder="Nome completo"
-                    />
-                    <input
-                        className="p-2 bg-white form-redondo"
-                        type="text"
-                        name="cpf"
-                        placeholder="CPF"
-                    />
-                    <input
-                        className="p-2 bg-white form-redondo"
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                    />
-                    <input
-                        className="p-2 bg-white form-redondo"
-                        type="password"
-                        name="senha"
-                        placeholder="Senha"
-                    />
-                    <button type="submit">
-                        Cadastrar
-                    </button>
-                </form>
-            </div>
-        
-    );
-}
-=======
 import "../Auth/css/auth.css";
 import Button from "../../components/Button.tsx";
 import { useNavigate } from "react-router-dom";
-<<<<<<< Updated upstream
-=======
 import Checkbox from "../../components/checkbox.tsx";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
->>>>>>> Stashed changes
 
 export default function Register() {
   const navigate = useNavigate();
@@ -83,7 +40,6 @@ export default function Register() {
   }
 
   return (
-<<<<<<< Updated upstream
     <div className="min-h-screen w-full bg-[#121212] flex justify-end   relative overflow-hidden">
   
       <div className="absolute inset-0 register-bg opacity-50" />
@@ -128,8 +84,6 @@ export default function Register() {
     </div>
   );
 }
->>>>>>> Stashed changes
-=======
     <div className="min-h-screen w-full bg-[#121212] flex justify-end items-center overflow-hidden ">
       <div className="absolute inset-0 register-bg py-10!" />
       {Object.keys(errors).length > 0 && (
@@ -201,4 +155,3 @@ export default function Register() {
     </div>
   );
 }
->>>>>>> Stashed changes
