@@ -2,7 +2,7 @@
 export default function BannerVideo() {
   return (
     <>
-      <div id="carouselExampleIndicators" className="carousel slide">
+      <div id="carouselExampleIndicators" className="carousel slide mb-20!">
         <div className="carousel-indicators">
           <button
             type="button"
