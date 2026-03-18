@@ -3,7 +3,7 @@ import CardCarro from "./components/CardCarros"
 
 export default function Explorar() {
     return (
-        <div className="">
+        <div >
             <div className="w-full">
                 <Carrossel />
             </div>

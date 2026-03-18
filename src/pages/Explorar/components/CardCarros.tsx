@@ -1,5 +1,6 @@
 import Image from "./cardimage.jpg";
 import Button from "../../../components/Button"
+// import type { CardCarroProps } from "../../../types/types";
 
 export default function CardCarro() {
   return (
