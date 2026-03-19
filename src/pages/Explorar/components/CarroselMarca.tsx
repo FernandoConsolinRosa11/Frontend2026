@@ -7,7 +7,7 @@ export default function Carrosel() {
         "Lamborghini", "Ferrari", "Porsche", "McLaren", "Bugatti",
         "Aston Martin", "Pagani", "Koenigsegg", "Maserati", "Bentley",
         "Rolls-Royce", "Lotus", "Alfa Romeo", "Audi", "BMW",
-        "Mercedes-Benz", "Nissan", "Toyota", "Chevrolet", "Ford"
+        "Mercedes-Benz"
     ];
 
     // duplicamos 3 vezes para criar loop infinito visual
@@ -25,7 +25,7 @@ export default function Carrosel() {
     }
 
     return (
-        <div className="carrossel-container mx-auto">
+        <div className="carrossel-container mx-auto ">
             <div className="carrossel-wrapper">
                 <button onClick={anterior}>◀</button>
 
@@ -33,7 +33,7 @@ export default function Carrosel() {
                     <div
                         className="carrossel-itens"
                         style={{
-                            transform: `translateX(calc(50% - ${(index + centerOffset) * 240}px - 120px))`
+                             transform: `translateX(calc(50cqw - ${(index + centerOffset) * 240 + 120}px))`
                         }}
                     >
                         {extendedCarros.map((carro, i) => {
