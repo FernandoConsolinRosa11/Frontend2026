@@ -68,7 +68,7 @@ export default function Carrossel({ onChangeMarca }: Props) {
               )
                 classe += " opacity-medio";
               else classe += " opacity-fraco";
-
+              
               return (
                 <div
                   key={i}
