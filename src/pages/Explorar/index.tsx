@@ -12,8 +12,13 @@ import SideBar from "./components/SideBar";
 export default function Explorar() {
   const [cars, setCars] = useState<CardCarProps[]>([]);
   const [marcaSelecionada, setMarcaSelecionada] = useState("Todos");
-  const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<string[]>([]);
-  const [notification, setNotification] = useState<{ message: string; variant: "success" | "error" } | null>(null);
+  const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<
+    string[]
+  >([]);
+  const [notification, setNotification] = useState<{
+    message: string;
+    variant: "success" | "error";
+  } | null>(null);
   const { user } = useContext(AuthContext);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
@@ -22,35 +27,37 @@ export default function Explorar() {
     setCategoriasSelecionadas((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
-        : [...prev, category]
+        : [...prev, category],
     );
   };
 
-  const fetchCars = async () => {
-    try {
-      const res = await fetch("http://localhost:3000/cars");
-      const data = await res.json();
-      setCars(data);
-    } catch (err) {
-      console.error("Erro ao buscar carros:", err);
-    }
-  };
-
   useEffect(() => {
-    fetchCars();
+    const fetchCars = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/cars");
+        const data = await res.json();
+        setCars(data);
+      } catch (err) {
+        console.error("Erro ao buscar carros:", err);
+      }
+    };
+
+    fetchCars(); 
   }, []);
 
   const carsFiltrados = cars.filter((carro) => {
     // 1. Filtro de Marcas
-    const matchesMarca = marcaSelecionada === "Todos" || carro.brand === marcaSelecionada;
+    const matchesMarca =
+      marcaSelecionada === "Todos" || carro.brand === marcaSelecionada;
 
     // 2. Filtro de Categorias
     // Convertemos as categorias selecionadas para minúsculo para comparar sem erro
-    const categoriasLower = categoriasSelecionadas.map(c => c.toLowerCase());
+    const categoriasLower = categoriasSelecionadas.map((c) => c.toLowerCase());
 
     const matchesCategoria =
       categoriasSelecionadas.length === 0 ||
-      (carro.category?.name && categoriasLower.includes(carro.category.name.toLowerCase()));
+      (carro.category?.name &&
+        categoriasLower.includes(carro.category.name.toLowerCase()));
 
     return matchesMarca && matchesCategoria;
   });
