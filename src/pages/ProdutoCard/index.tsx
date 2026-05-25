@@ -189,7 +189,7 @@ export default function ProdutoCard() {
             <h3 className="text-sm font-black text-gray-400 uppercase tracking-widest mb-8 border-b border-gray-100 ">Itens de Série</h3>
             <div className="flex flex-wrap gap-2">
               {carro?.features && Array.isArray(carro.features) && carro.features.length > 0 ? (
-                carro.features.map((item: any, index: number) => (
+                carro.features.map((item: string | {name:string}, index: number) => (
                   <span
                     key={index}
                     className="text-[15px] text-white bg-[#C59958] px-3 my-3 rounded-full uppercase tracking-tighter"

@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { AuthProvider } from "./contexts/authContext";
+import { AuthProvider } from "./contexts/AuthProvider";
 import { Navbar, Footer } from "./layout";
 import AppRoutes from "./routes/AppRoutes";
 import "./App.css";

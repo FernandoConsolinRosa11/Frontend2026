@@ -1,7 +1,9 @@
+import type { User } from "../types/auth";
+
 const USER_KEY = "user_data";
 
 export const authStorage = {
-  saveUser: (user: any) => {
+  saveUser: (user: User) => {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   },
   getUser: () => {

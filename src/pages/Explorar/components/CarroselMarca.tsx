@@ -27,18 +27,17 @@ export default function Carrossel({ onChangeMarca }: Props) {
   const centerOffset = carros.length; // posição central da repetição do meio
 
   const [index, setIndex] = useState(0);
-  const [,setFiltro] = useState("Todos");
 
   useEffect(() => {
-  const filtroAtual = carros[index].nome;
+    const filtroAtual = carros[index].nome;
 
-  setFiltro(filtroAtual);
+    onChangeMarca(filtroAtual);
 
-  console.log("Filtro atual:", filtroAtual);
+    console.log("Filtro atual:", filtroAtual);
 
-   onChangeMarca(filtroAtual)
+    onChangeMarca(filtroAtual);
+  }, [index, onChangeMarca]);
 
-}, [index]);
   function proximo() {
     setIndex((prev) => (prev + 1) % carros.length);
   }
@@ -69,9 +68,12 @@ export default function Carrossel({ onChangeMarca }: Props) {
               )
                 classe += " opacity-medio";
               else classe += " opacity-fraco";
-
+              
               return (
-                <div key={i} className={`${classe} flex items-center justify-center`}>
+                <div
+                  key={i}
+                  className={`${classe} flex items-center justify-center`}
+                >
                   <img
                     src={carro.logo}
                     alt={carro.nome}
@@ -82,7 +84,6 @@ export default function Carrossel({ onChangeMarca }: Props) {
             })}
           </div>
         </div>
-
 
         <button onClick={proximo}>▶</button>
       </div>

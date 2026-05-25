@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../../components/Button.tsx";
@@ -25,13 +25,15 @@ export default function Register() {
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     formState: { errors },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
   });
 
-  const values = watch();
+  const cpf = useWatch({ control, name: "cpf" });
+  const number = useWatch({ control, name: "number" });
+  const cep = useWatch({ control, name: "cep" });
 
   useEffect(() => {
     if (!notification) return;
@@ -62,11 +64,17 @@ export default function Register() {
         navigate("/Login");
         window.location.reload();
       }
-    } catch (error: any) {
-      const errormessage =
-        error.response?.data?.message || "Erro ao conectar com o servidor";
+    } catch (error: unknown) {
+      let errormessage = "Erro ao conectar com o servidor";
+
+      if (axios.isAxiosError(error)) {
+        errormessage = error.response?.data?.message ?? errormessage;
+      } else if (error instanceof Error) {
+        errormessage = error.message;
+      }
+
       setNotification({ message: errormessage, variant: "error" });
-      console.log(`Erro no cadastro:`, error.response?.data || error.message);
+      console.log("Erro no cadastro:", error);
     }
   };
 
@@ -85,7 +93,6 @@ export default function Register() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex-col gap-4 flex glass-form m-6! w-full scale-80 backdrop-blur-xl! border border-white/10! overflow-y-hidden! "
       >
-
         <h3 className="m-auto text-white">
           Associe-se à <span className="text-[#C59958]">Prime Motors</span>
         </h3>
@@ -97,14 +104,16 @@ export default function Register() {
             placeholder="Nome completo"
           />
           {errors.name && (
-            <span className="text-red-500 text-base">{errors.name.message}</span>
+            <span className="text-red-500 text-base">
+              {errors.name.message}
+            </span>
           )}
         </div>
 
         <div className="flex flex-col gap-1">
           <input
             {...register("cpf")}
-            value={values.cpf || ""}
+            value={cpf || ""}
             onChange={(e) => setValue("cpf", cpfMask(e.target.value))}
             className="p-2 bg-white rounded-sm placeholder-gray-700 text-black "
             placeholder="CPF"
@@ -122,7 +131,9 @@ export default function Register() {
             placeholder="Email"
           />
           {errors.email && (
-            <span className="text-red-500 text-base">{errors.email.message}</span>
+            <span className="text-red-500 text-base">
+              {errors.email.message}
+            </span>
           )}
         </div>
 
@@ -138,7 +149,9 @@ export default function Register() {
               {errors.password.message}
             </span>
           )}
-          {!errors.password && <span className="text-white">* Mínimo de 6 caracteres</span>}
+          {!errors.password && (
+            <span className="text-white">* Mínimo de 6 caracteres</span>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -159,7 +172,7 @@ export default function Register() {
           <div className="flex flex-col gap-1">
             <input
               {...register("number")}
-              value={values.number || ""}
+              value={number || ""}
               onChange={(e) => setValue("number", phoneMask(e.target.value))}
               className="w-full p-2 bg-white border border-gray-300 rounded-sm placeholder-gray-700 text-black  focus:outline-blue-500"
               placeholder="Telefone"
@@ -174,13 +187,15 @@ export default function Register() {
           <div className="flex flex-col gap-1">
             <input
               {...register("cep")}
-              value={values.cep || ""}
+              value={cep || ""}
               onChange={(e) => setValue("cep", zipCodeMask(e.target.value))}
               className="w-full p-2 bg-white border border-gray-300 rounded-sm placeholder-gray-700 text-black  focus:outline-blue-500"
               placeholder="CEP"
             />
             {errors.cep && (
-              <span className="text-red-500 text-base">{errors.cep.message}</span>
+              <span className="text-red-500 text-base">
+                {errors.cep.message}
+              </span>
             )}
           </div>
         </div>
