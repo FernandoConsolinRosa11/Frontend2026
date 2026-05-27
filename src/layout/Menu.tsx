@@ -1,9 +1,10 @@
-import { FaChevronRight } from "react-icons/fa";
-import "./menu.css";
 import { useContext } from "react";
+import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../contexts/authContext";
+import "./menu.css";
+
 
 export default function Menu() {
   const { user } = useContext(AuthContext);

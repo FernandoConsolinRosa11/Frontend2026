@@ -2,8 +2,8 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 
 import type { AuthLoginPayload, User } from "../types/auth";
-import { AuthContext } from "./authContext";
 import { authStorage } from "../utils/userLocalStorage";
+import { AuthContext } from "./authContext";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => authStorage.getUser());

@@ -16,3 +16,4 @@ EXPOSE 80
 
 # Comando que mantém o Nginx rodando em primeiro plano
 CMD ["nginx", "-g", "daemon off;"]
+

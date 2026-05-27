@@ -7,43 +7,42 @@ type Props = {
   onChangeMarca: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function Carrossel({ onChangeMarca }: Props) {
-  const carros = [
-    { nome: "Todos", logo: logos.todos },
-    { nome: "Lamborghini", logo: logos.lamborghini },
-    { nome: "Ferrari", logo: logos.ferrari },
-    { nome: "Porsche", logo: logos.porsche },
-    { nome: "McLaren", logo: logos.mclaren },
-    { nome: "Bugatti", logo: logos.bugatti },
-    { nome: "Pagani", logo: logos.pagani },
-    { nome: "Koenigsegg", logo: logos.koenigsegg },
-    { nome: "Rolls-Royce", logo: logos.rolls },
-    { nome: "Audi", logo: logos.audi },
-    { nome: "BMW", logo: logos.bmw },
-    { nome: "Mercedes-Benz", logo: logos.mercedes },
-  ];
-  // duplicamos 3 vezes para criar loop infinito visual
-  const extendedCarros = [...carros, ...carros, ...carros];
-  const centerOffset = carros.length; // posição central da repetição do meio
 
+const CARROS_DATA = [
+  { nome: "Todos", logo: logos.todos },
+  { nome: "Lamborghini", logo: logos.lamborghini },
+  { nome: "Ferrari", logo: logos.ferrari },
+  { nome: "Porsche", logo: logos.porsche },
+  { nome: "McLaren", logo: logos.mclaren },
+  { nome: "Bugatti", logo: logos.bugatti },
+  { nome: "Pagani", logo: logos.pagani },
+  { nome: "Koenigsegg", logo: logos.koenigsegg },
+  { nome: "Rolls-Royce", logo: logos.rolls },
+  { nome: "Audi", logo: logos.audi },
+  { nome: "BMW", logo: logos.bmw },
+  { nome: "Mercedes-Benz", logo: logos.mercedes },
+];
+
+const EXTENDED_CARROS = [...CARROS_DATA, ...CARROS_DATA, ...CARROS_DATA];
+const CENTER_OFFSET = CARROS_DATA.length; 
+
+export default function Carrossel({ onChangeMarca }: Props) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const filtroAtual = carros[index].nome;
+    const filtroAtual = CARROS_DATA[index].nome;
 
     onChangeMarca(filtroAtual);
-
     console.log("Filtro atual:", filtroAtual);
-
-    onChangeMarca(filtroAtual);
-  }, [index, onChangeMarca]);
+    
+  }, [index, onChangeMarca]); // No more warnings here!
 
   function proximo() {
-    setIndex((prev) => (prev + 1) % carros.length);
+    setIndex((prev) => (prev + 1) % CARROS_DATA.length);
   }
 
   function anterior() {
-    setIndex((prev) => (prev - 1 + carros.length) % carros.length);
+    setIndex((prev) => (prev - 1 + CARROS_DATA.length) % CARROS_DATA.length);
   }
 
   return (
@@ -55,16 +54,16 @@ export default function Carrossel({ onChangeMarca }: Props) {
           <div
             className="carrossel-itens"
             style={{
-              transform: `translateX(calc(50cqw - ${(index + centerOffset) * 240 + 120}px))`,
+              transform: `translateX(calc(50cqw - ${(index + CENTER_OFFSET) * 240 + 120}px))`,
             }}
           >
-            {extendedCarros.map((carro, i) => {
+            {EXTENDED_CARROS.map((carro, i) => {
               let classe = "carrossel-item";
 
-              if (i === index + centerOffset) classe += " carrossel-centro";
+              if (i === index + CENTER_OFFSET) classe += " carrossel-centro";
               else if (
-                i === index + centerOffset - 1 ||
-                i === index + centerOffset + 1
+                i === index + CENTER_OFFSET - 1 ||
+                i === index + CENTER_OFFSET + 1
               )
                 classe += " opacity-medio";
               else classe += " opacity-fraco";
