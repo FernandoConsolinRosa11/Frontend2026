@@ -35,14 +35,22 @@ export default function Explorar() {
     const fetchCars = async () => {
       try {
         const res = await fetch("http://localhost:3000/cars");
+
+        if (!res.ok) {
+          console.error("Erro ao buscar carros: status", res.status);
+          setCars([]);
+          return;
+        }
+
         const data = await res.json();
-        setCars(data);
+        setCars(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Erro ao buscar carros:", err);
+        setCars([]);
       }
     };
 
-    fetchCars(); 
+    fetchCars();
   }, []);
 
   const carsFiltrados = cars.filter((carro) => {
