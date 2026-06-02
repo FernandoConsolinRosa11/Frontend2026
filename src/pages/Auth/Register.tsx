@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -10,9 +11,7 @@ import { authStorage } from "../../utils/userLocalStorage.ts";
 import { cpfMask, zipCodeMask, phoneMask } from "../Auth/masks/masks.ts";
 import { registerSchema } from "../Auth/masks/validationRegister.ts";
 import type { RegisterFormData } from "../Auth/masks/validationRegister.ts";
-
 import "../Auth/css/auth.css";
-import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();

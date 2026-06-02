@@ -36,13 +36,14 @@ export default function Explorar() {
       try {
         const res = await fetch("/cars");
         const data = await res.json();
-        setCars(data);
+        setCars(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Erro ao buscar carros:", err);
+        setCars([]);
       }
     };
 
-    fetchCars(); 
+    fetchCars();
   }, []);
 
   const carsFiltrados = cars.filter((carro) => {
