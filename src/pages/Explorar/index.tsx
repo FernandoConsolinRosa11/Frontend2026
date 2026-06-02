@@ -34,14 +34,7 @@ export default function Explorar() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await fetch("http://localhost:3000/cars");
-
-        if (!res.ok) {
-          console.error("Erro ao buscar carros: status", res.status);
-          setCars([]);
-          return;
-        }
-
+        const res = await fetch("/cars");
         const data = await res.json();
         setCars(Array.isArray(data) ? data : []);
       } catch (err) {
