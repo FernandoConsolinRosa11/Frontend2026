@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:3000/auth";
+const API_URL = "/auth";
 
 export const authService = {
   login: async (credentials: { email: string; password: string }) => {

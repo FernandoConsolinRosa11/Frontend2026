@@ -40,7 +40,7 @@ const UserProfile = () => {
       <Notification
         message={notification?.message ?? ""}
         variant={notification?.variant ?? "success"}
-        onClose={() => setNotification(null)}
+        onClose={() => setNotification(null )}
       />
       <div className="max-w-5xl mx-auto px-4 ">
         <header className="mb-8 pb-2 ">
