@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import Notification from "../../components/Notification"; // Certifique-se que o caminho está correto
+import Notification from "../../components/Notification";
 import { AuthContext } from "../../contexts/authContext";
+import api from "../../services/api";
 import type { CardCarProps } from "../../types/types";
 import { Button } from "../UserProfile/Components";
 import ProposalModal from "./components/proposalModal";
@@ -25,8 +26,8 @@ export default function ProdutoCard() {
   useEffect(() => {
     async function fetchCarro() {
       try {
-        const res = await fetch(`http://localhost:3000/cars/${id}`);
-        const data = await res.json();
+        const res = await api.get(`/cars/${id}`);
+        const data = res.data;
         setCarro(data);
         if (data.allImages && data.allImages.length > 0) {
           setImgSelecionada(data.allImages[0]);

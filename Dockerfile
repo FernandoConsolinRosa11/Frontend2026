@@ -15,8 +15,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copia os arquivos gerados no Estágio 1 para a pasta pública do Nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expõe a porta interna clássica do Nginx
-EXPOSE 80
+# Expõe as portas internas do Nginx
+EXPOSE 80 443
 
 # Comando que mantém o Nginx rodando em primeiro plano
 CMD ["nginx", "-g", "daemon off;"]

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 import Button from "../../components/Button.tsx";
 import Checkbox from "../../components/checkbox.tsx";
@@ -49,8 +50,8 @@ export default function Register() {
         cep: data.cep.replace(/\D/g, ""),
       };
 
-      const response = await axios.post(
-        "http://localhost:3000/auth/users",
+      const response = await api.post(
+        "/auth/users",
         cleanData,
       );
 
