@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import Notification from "../../components/Notification"; // Certifique-se que o caminho está correto
+import Notification from "../../components/Notification";
 import { AuthContext } from "../../contexts/authContext";
 import api from "../../services/api";
 import type { CardCarProps } from "../../types/types";
