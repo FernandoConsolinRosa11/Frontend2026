@@ -11,6 +11,7 @@ import {
   useUserProfile,
   useParams,
   isTokenExpired,
+  AvatarUploadForm,
 } from "./Components";
 
 const UserProfile = () => {
@@ -22,6 +23,7 @@ const UserProfile = () => {
     activeModal,
     setActiveModal,
     handleUpdate,
+    handleUpdateAvatar,
     handleDelete,
     notification,
     setNotification,
@@ -40,7 +42,7 @@ const UserProfile = () => {
       <Notification
         message={notification?.message ?? ""}
         variant={notification?.variant ?? "success"}
-        onClose={() => setNotification(null )}
+        onClose={() => setNotification(null)}
       />
       <div className="max-w-5xl mx-auto px-4 ">
         <header className="mb-8 pb-2 ">
@@ -51,14 +53,29 @@ const UserProfile = () => {
 
         <main className="border border-gray-700 p-1 bg-[#12121269]">
           <section className="p-6 border-b border-gray-800">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 block mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400">
               Usuário
             </span>
-            <h2 className="text-3xl italic font-semibold tracking-tight">
+
+            <h2 className="text-3xl italic font-semibold mt-1">
               {userData?.name}
             </h2>
-          </section>
 
+            <div className="flex items-center gap-4 mt-6">
+              <img
+                src={userData?.avatarUrl || "/default-avatar.png"}
+                alt="Avatar"
+                className="w-24 h-24 rounded-full object-cover border border-[#C59958]"
+              />
+
+              <button
+                onClick={() => setActiveModal("avatar")}
+                className="text-[#C59958] hover:underline"
+              >
+                Trocar foto
+              </button>
+            </div>
+          </section>
           <div className="p-6 space-y-4">
             <InfoRow label="Email" value={userData?.email || ""} />
             <InfoRow
@@ -111,23 +128,31 @@ const UserProfile = () => {
 
       <Modal isOpen={activeModal !== null} onClose={() => setActiveModal(null)}>
         <h3 className="text-xl tracking-[0.2em] uppercase mb-8 font-light text-white">
-          {activeModal === "password" ? "Segurança" : "Contato"}
+          {activeModal === "password" ? "Segurança"
+            : activeModal === "avatar" ? "Atualizar Foto"
+              : "Contato"}
         </h3>
 
-        <EditFieldForm
-          config={{
-            label: activeModal === "password" ? "Nova Senha" : "Novo Telefone",
-            type: activeModal === "password" ? "password" : "text",
-            defaultValue: activeModal === "phone" ? userData?.number : "",
-            maxLength: activeModal === "phone" ? 13 : 20,
-          }}
-          onSave={(val) =>
-            handleUpdate(
-              activeModal === "password" ? "password" : "number",
-              val,
-            )
-          }
-        />
+        {activeModal === "avatar" ? (
+          // Aqui você chama o componente que criamos para o upload
+          <AvatarUploadForm onUpload={handleUpdateAvatar} />
+        ) : (
+          // Aqui continua a lógica dos outros campos
+          <EditFieldForm
+            config={{
+              label: activeModal === "password" ? "Nova Senha" : "Novo Telefone",
+              type: activeModal === "password" ? "password" : "text",
+              defaultValue: activeModal === "phone" ? userData?.number : "",
+              maxLength: activeModal === "phone" ? 13 : 20,
+            }}
+            onSave={(val) =>
+              handleUpdate(
+                activeModal === "password" ? "password" : "number",
+                val,
+              )
+            }
+          />
+        )}
       </Modal>
     </div>
   );

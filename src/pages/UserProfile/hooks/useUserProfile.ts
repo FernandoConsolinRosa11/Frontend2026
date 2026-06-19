@@ -12,9 +12,9 @@ export const useUserProfile = (id: string | undefined) => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeModal, setActiveModal] = useState<"password" | "phone" | null>(
-    null,
-  );
+  const [activeModal, setActiveModal] = useState<
+    "password" | "phone" | "avatar" | null
+  >(null);
 
   const fetchUserProfile = useCallback(async () => {
     if (!id || id === ":id" || id === "undefined") return;
@@ -77,6 +77,27 @@ export const useUserProfile = (id: string | undefined) => {
     }
   };
 
+  const handleUpdateAvatar = async (url: string) => {
+    if (!id) return;
+    try {
+      // Chama o seu service que faz o PATCH na API
+      const updatedUser = await userService.updateAvatar(id, url);
+      
+      // Atualiza o estado local para a UI refletir a nova imagem
+      setUserData((prev) => (prev ? { ...prev, avatarUrl: url } : null));
+      setActiveModal(null);
+      setNotification({
+        message: "Foto de perfil atualizada!",
+        variant: "success",
+      });
+    } catch (error) {
+      setNotification({
+        message: "Erro ao salvar a foto no banco.",
+        variant: "error",
+      });
+    }
+  };
+
   const handleDelete = async () => {
     if (!id) return;
     try {
@@ -97,6 +118,7 @@ export const useUserProfile = (id: string | undefined) => {
     activeModal,
     setActiveModal,
     handleUpdate,
+    handleUpdateAvatar,
     handleDelete,
     notification,
     setNotification,

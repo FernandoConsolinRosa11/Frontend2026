@@ -57,6 +57,7 @@ export interface UserData {
   cep: string;
   password: string;
   number: string;
+  avatarUrl?: string | null;
 }
 
 export interface EditConfig {

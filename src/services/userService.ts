@@ -59,6 +59,18 @@ export const userService = {
       throw new Error(message);
     }
   },
-
+  updateAvatar: async (id: string, avatarUrl: string) => {
+    const token = localStorage.getItem("token");
+    const response = await axios.patch(
+      `/users/${id}/avatar`,
+      { avatarUrl },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  },
   deleteProfile: (id: string) => api.delete(`/users/${id}`),
 };
