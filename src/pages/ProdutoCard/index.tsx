@@ -110,7 +110,7 @@ export default function ProdutoCard() {
                 className="max-w-full max-h-[400px] object-contain drop-shadow-sm"
               />
             </div>
-
+ 
             {/* 3. Informações e Compra (Direita) */}
             <div className="w-full md:w-[380px] flex flex-col">
               <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter leading-none mb-2">

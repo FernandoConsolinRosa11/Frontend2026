@@ -84,7 +84,7 @@ const UserProfile = () => {
 
       {showDeleteConfirm ? (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-[#121212] border border-white/20 p-6 max-w-md w-full">
+          <div className="bg-[#121212] border border-white/20 p-6! max-w-md w-full">
             <p className="text-white mb-6">Deseja desativar seu perfil?</p>
             <div className="flex justify-end gap-3">
               <button
@@ -110,7 +110,7 @@ const UserProfile = () => {
       ) : null}
 
       <Modal isOpen={activeModal !== null} onClose={() => setActiveModal(null)}>
-        <h3 className="text-xl tracking-[0.2em] uppercase mb-8 font-light text-white">
+        <h3 className="text-xl tracking-[0.2em] uppercase mb-8 font-light text-white text-center">
           {activeModal === "password" ? "Segurança" : "Contato"}
         </h3>
 
