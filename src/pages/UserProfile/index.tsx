@@ -15,6 +15,7 @@ import {
 } from "./Components";
 
 const UserProfile = () => {
+  
   const { id } = useParams<{ id: string }>();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const {
@@ -28,7 +29,6 @@ const UserProfile = () => {
     notification,
     setNotification,
   } = useUserProfile(id);
-
   if (isLoading) {
     return <Loading />;
   }
@@ -51,6 +51,7 @@ const UserProfile = () => {
           </h1>
         </header>
         <div className="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
+          
           {userData?.avatarUrl ? (
             <img
               src={userData.avatarUrl}

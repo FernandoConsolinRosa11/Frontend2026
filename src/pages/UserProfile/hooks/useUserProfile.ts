@@ -79,12 +79,12 @@ export const useUserProfile = (id: string | undefined) => {
 
   const handleUpdateAvatar = async (url: string) => {
     if (!id) return;
+
     try {
-      // Chama o seu service que faz o PATCH na API
-      const updatedUser = await userService.updateAvatar(id, url);
-      
-      // Atualiza o estado local para a UI refletir a nova imagem
-      setUserData((prev) => (prev ? { ...prev, avatarUrl: url } : null));
+      await userService.updateAvatar(id, url);
+
+      await fetchUserProfile(); // 🔥 ESSENCIAL
+
       setActiveModal(null);
       setNotification({
         message: "Foto de perfil atualizada!",

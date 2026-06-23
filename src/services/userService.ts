@@ -5,6 +5,7 @@ type UserUpdateData = Partial<Record<string, unknown>>;
 
 export const userService = {
   getProfile: async (id: string) => {
+    
     if (!id || id === "undefined") {
       throw new Error("ID do usuário não fornecido");
     }
@@ -12,7 +13,6 @@ export const userService = {
     const token = localStorage.getItem("token");
 
     try {
-      // Alterado para caminho relativo
       const response = await axios.get(`/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
