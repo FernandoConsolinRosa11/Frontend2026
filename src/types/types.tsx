@@ -43,7 +43,9 @@ export interface CardCarProps {
   };
   features?: string[]; // Já está opcional
 }
-
+export interface AvatarUploadFormProps {
+  onUpload: (url: string) => void;
+}
 export interface CardGarageProps extends CardCarProps {
   status: 'Processando' | 'Entregue' | 'Cancelado';
   purchaseDate: string;

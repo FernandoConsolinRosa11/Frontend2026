@@ -8,14 +8,12 @@ export const AvatarUploadForm = ({ onUpload }: { onUpload: (url: string) => void
     if (!file) return;
     setLoading(true);
     
-    // NOTA: Se você não estiver usando Cloudinary, 
-    // substitua esta lógica pela forma que seu projeto faz upload
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "SEU_PRESET"); 
+    formData.append("upload_preset", "avatar_prime_motors"); 
 
     try {
-      const res = await fetch("https://api.cloudinary.com/v1_1/SEU_CLOUD_NAME/image/upload", {
+      const res = await fetch("https://api.cloudinary.com/v1_1/dchrzl7ao/image/upload", {
         method: "POST",
         body: formData,
       });

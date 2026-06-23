@@ -50,7 +50,26 @@ const UserProfile = () => {
             Meu Perfil
           </h1>
         </header>
+        <div className="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
+          {userData?.avatarUrl ? (
+            <img
+              src={userData.avatarUrl}
+              alt="Foto de perfil"
+              className="w-36 h-36 rounded-full object-cover border border-[#C59958]"
+            />
+          ) : (
+            <div className="w-36 h-36 rounded-full border border-[#C59958] flex items-center justify-center bg-gray-100 text-gray-500">
+              <span className="text-sm">Sem foto</span>
+            </div>
+          )}
 
+          <button
+            onClick={() => setActiveModal("avatar")}
+            className="text-[#C59958] hover:underline"
+          >
+            Trocar foto
+          </button>
+        </div>
         <main className="border border-gray-700 p-1 bg-[#12121269]">
           <section className="p-6 border-b border-gray-800">
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400">
@@ -61,20 +80,6 @@ const UserProfile = () => {
               {userData?.name}
             </h2>
 
-            <div className="flex items-center gap-4 mt-6">
-              <img
-                src={userData?.avatarUrl || "/default-avatar.png"}
-                alt="Avatar"
-                className="w-24 h-24 rounded-full object-cover border border-[#C59958]"
-              />
-
-              <button
-                onClick={() => setActiveModal("avatar")}
-                className="text-[#C59958] hover:underline"
-              >
-                Trocar foto
-              </button>
-            </div>
           </section>
           <div className="p-6 space-y-4">
             <InfoRow label="Email" value={userData?.email || ""} />
