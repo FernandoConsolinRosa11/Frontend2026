@@ -54,7 +54,7 @@ export default function Garagem() {
     <div className="min-h-screen bg-[#121212] text-white p-10 pt-2">
       <div className="ml-10!">
         <h2 className="text-3xl font-light tracking-[0.4em] uppercase mb-12! border-l-[5px] border-[#C59958] pl-6!">
-          Sua Garagem
+          Minha Garagem
         </h2>
 
         {statusMessage && (

@@ -4,8 +4,8 @@ import Menu from "../layout/Menu";
 import { Home, Login, Register, ErrorPage, Explorar, Garagem } from "../pages";
 import Favoritos from "../pages/Favoritos";
 import ProdutoCard from "../pages/ProdutoCard";
-import { TestDrive } from "../pages/TestDrive";
 import UserProfile from "../pages/UserProfile";
+import TestDrive from "../pages/TestDrive";
 
 export default function AppRoutes() {
   return (
@@ -20,7 +20,7 @@ export default function AppRoutes() {
       <Route path="/Garagem/:id" element={<Garagem />} />
       <Route path="/Perfil/:id" element={<UserProfile />} />
       <Route path="/Favoritos/:id" element={<Favoritos/>} />
-      <Route path="/TesteDrive/:id" element={<TestDrive/>} />
+      <Route path="/TestDrive/:id" element={<TestDrive/>} />
     </Routes>
   );
 }
