@@ -2,6 +2,7 @@ import "../Auth/css/auth.css";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import Button from "../../components/Button.tsx";
 import { AuthContext } from "../../contexts/authContext";
 import { authService } from "../../services/authService";
@@ -49,6 +50,7 @@ export default function Login() {
         onSubmit={handleLogin}
         className="flex-col gap-9 flex w-full glass-form m-6! scale-80 backdrop-blur-xl! border border-white/10!"
       >
+        
         <h3 className="m-auto text-white text-center">
           Acesse sua conta <span className="text-[#C59958]">Prime</span>
         </h3>
@@ -89,7 +91,9 @@ export default function Login() {
             type="submit"
           />
         </div>
+        
       </form>
+      
     </div>
   );
 }
