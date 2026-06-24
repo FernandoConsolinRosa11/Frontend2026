@@ -1,8 +1,5 @@
 import axios from "axios";
-
 import api from "./api";
-
-const API_URL = "http://localhost:3000";
 
 type UserUpdateData = Partial<Record<string, unknown>>;
 
@@ -15,7 +12,8 @@ export const userService = {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.get(`${API_URL}/users/${id}`, {
+      // Alterado para caminho relativo
+      const response = await axios.get(`/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,8 +38,9 @@ export const userService = {
     );
 
     try {
+      // Alterado para caminho relativo
       const response = await axios.patch(
-        `${API_URL}/users/${id}`,
+        `/users/${id}`,
         filteredData,
         {
           headers: {
