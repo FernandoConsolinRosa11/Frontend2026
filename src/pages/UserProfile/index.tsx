@@ -15,7 +15,7 @@ import {
 } from "./Components";
 
 const UserProfile = () => {
-  
+
   const { id } = useParams<{ id: string }>();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const {
@@ -25,6 +25,7 @@ const UserProfile = () => {
     setActiveModal,
     handleUpdate,
     handleUpdateAvatar,
+    handleRemoveAvatar,
     handleDelete,
     notification,
     setNotification,
@@ -51,7 +52,7 @@ const UserProfile = () => {
           </h1>
         </header>
         <div className="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
-          
+
           {userData?.avatarUrl ? (
             <img
               src={userData.avatarUrl}
@@ -70,6 +71,14 @@ const UserProfile = () => {
           >
             Trocar foto
           </button>
+          {userData?.avatarUrl && (
+            <button
+              onClick={handleRemoveAvatar}
+              className="text-red-500 hover:underline text-sm"
+            >
+              Remover foto
+            </button>
+          )}
         </div>
         <main className="border border-gray-700 p-1 bg-[#12121269]">
           <section className="p-6 border-b border-gray-800">

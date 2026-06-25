@@ -59,7 +59,7 @@ export const userService = {
       throw new Error(message);
     }
   },
-  updateAvatar: async (id: string, avatarUrl: string) => {
+  updateAvatar: async (id: string, avatarUrl: string | null) => {
     const token = localStorage.getItem("token");
     const response = await axios.patch(
       `/users/${id}/avatar`,

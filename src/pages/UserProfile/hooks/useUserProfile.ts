@@ -112,6 +112,26 @@ export const useUserProfile = (id: string | undefined) => {
     }
   };
 
+  const handleRemoveAvatar = async () => {
+    if (!id) return;
+
+    try {
+      await userService.updateAvatar(id, null);
+
+      await fetchUserProfile();
+
+      setNotification({
+        message: "Foto removida com sucesso!",
+        variant: "success",
+      });
+    } catch {
+      setNotification({
+        message: "Erro ao remover foto.",
+        variant: "error",
+      });
+    }
+  };
+
   return {
     userData,
     isLoading,
@@ -119,6 +139,7 @@ export const useUserProfile = (id: string | undefined) => {
     setActiveModal,
     handleUpdate,
     handleUpdateAvatar,
+    handleRemoveAvatar,
     handleDelete,
     notification,
     setNotification,
