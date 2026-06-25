@@ -25,7 +25,10 @@ interface TestDriveModalProps {
   carId: string;
   userId: string;
   onClose: () => void;
-  agendamentoInicial?: TestDriveData | null; // Substituído 'any' por 'TestDriveData'
+  agendamentoInicial?: TestDriveData | null; 
+  isOpen?: boolean;           
+  onSuccess?: (msg: string) => void;  
+  onError?: (msg: string) => void;    
 }
 
 export default function TestDriveModal({

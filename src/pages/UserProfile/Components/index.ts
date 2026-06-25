@@ -7,3 +7,4 @@ export { EditFieldForm } from "./editFieldForm";
 export { useUserProfile } from "../hooks/useUserProfile";
 export { useParams } from "react-router-dom";
 export { isTokenExpired } from "../../../utils/authToken";
+export { AvatarUploadForm } from "../Components/avatarUploadForm";

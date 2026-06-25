@@ -11,9 +11,11 @@ import {
   useUserProfile,
   useParams,
   isTokenExpired,
+  AvatarUploadForm,
 } from "./Components";
 
 const UserProfile = () => {
+
   const { id } = useParams<{ id: string }>();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const {
@@ -22,11 +24,12 @@ const UserProfile = () => {
     activeModal,
     setActiveModal,
     handleUpdate,
+    handleUpdateAvatar,
+    handleRemoveAvatar,
     handleDelete,
     notification,
     setNotification,
   } = useUserProfile(id);
-
   if (isLoading) {
     return <Loading />;
   }
@@ -40,7 +43,7 @@ const UserProfile = () => {
       <Notification
         message={notification?.message ?? ""}
         variant={notification?.variant ?? "success"}
-        onClose={() => setNotification(null )}
+        onClose={() => setNotification(null)}
       />
       <div className="max-w-5xl mx-auto px-4 ">
         <header className="mb-8 pb-2 ">
@@ -48,17 +51,46 @@ const UserProfile = () => {
             Meu Perfil
           </h1>
         </header>
+        <div className="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
 
+          {userData?.avatarUrl ? (
+            <img
+              src={userData.avatarUrl}
+              alt="Foto de perfil"
+              className="w-36 h-36 rounded-full object-cover border border-[#C59958]"
+            />
+          ) : (
+            <div className="w-36 h-36 rounded-full border border-[#C59958] flex items-center justify-center bg-gray-100 text-gray-500">
+              <span className="text-sm">Sem foto</span>
+            </div>
+          )}
+
+          <button
+            onClick={() => setActiveModal("avatar")}
+            className="text-[#C59958] hover:underline"
+          >
+            Trocar foto
+          </button>
+          {userData?.avatarUrl && (
+            <button
+              onClick={handleRemoveAvatar}
+              className="text-red-500 hover:underline text-sm"
+            >
+              Remover foto
+            </button>
+          )}
+        </div>
         <main className="border border-gray-700 p-1 bg-[#12121269]">
           <section className="p-6 border-b border-gray-800">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 block mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400">
               Usuário
             </span>
-            <h2 className="text-3xl italic font-semibold tracking-tight">
+
+            <h2 className="text-3xl italic font-semibold mt-1">
               {userData?.name}
             </h2>
-          </section>
 
+          </section>
           <div className="p-6 space-y-4">
             <InfoRow label="Email" value={userData?.email || ""} />
             <InfoRow
@@ -110,24 +142,32 @@ const UserProfile = () => {
       ) : null}
 
       <Modal isOpen={activeModal !== null} onClose={() => setActiveModal(null)}>
-        <h3 className="text-xl tracking-[0.2em] uppercase mb-8 font-light text-white text-center">
-          {activeModal === "password" ? "Segurança" : "Contato"}
+        <h3 className="text-xl tracking-[0.2em] uppercase mb-8 font-light text-white">
+          {activeModal === "password" ? "Segurança"
+            : activeModal === "avatar" ? "Atualizar Foto"
+              : "Contato"}
         </h3>
 
-        <EditFieldForm
-          config={{
-            label: activeModal === "password" ? "Nova Senha" : "Novo Telefone",
-            type: activeModal === "password" ? "password" : "text",
-            defaultValue: activeModal === "phone" ? userData?.number : "",
-            maxLength: activeModal === "phone" ? 13 : 20,
-          }}
-          onSave={(val) =>
-            handleUpdate(
-              activeModal === "password" ? "password" : "number",
-              val,
-            )
-          }
-        />
+        {activeModal === "avatar" ? (
+          // Aqui você chama o componente que criamos para o upload
+          <AvatarUploadForm onUpload={handleUpdateAvatar} />
+        ) : (
+          // Aqui continua a lógica dos outros campos
+          <EditFieldForm
+            config={{
+              label: activeModal === "password" ? "Nova Senha" : "Novo Telefone",
+              type: activeModal === "password" ? "password" : "text",
+              defaultValue: activeModal === "phone" ? userData?.number : "",
+              maxLength: activeModal === "phone" ? 13 : 20,
+            }}
+            onSave={(val) =>
+              handleUpdate(
+                activeModal === "password" ? "password" : "number",
+                val,
+              )
+            }
+          />
+        )}
       </Modal>
     </div>
   );
