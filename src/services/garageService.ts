@@ -9,7 +9,13 @@ export interface UpdateProposalPayload {
 const garageService = {
   getUserProposals: async (userId: string) => {
     const response = await api.get(`/Garage/${userId}`);
-    return response.data;
+    const data = response.data;
+
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.proposals)) return data.proposals;
+    if (Array.isArray(data?.data)) return data.data;
+    console.log("garage raw response:", response.data); 
+    return [];
   },
 
   sendCarProposal: async (payload: GarageProposalPayload) => {

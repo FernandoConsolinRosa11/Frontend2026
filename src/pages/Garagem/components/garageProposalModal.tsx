@@ -93,7 +93,7 @@ export default function GarageProposalModal({
         onClose={() => setNotification(null)}
       />
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-        <div className="bg-[#121212] border border-white/20 w-full max-w-2xl shadow-2xl">
+        <div className="bg-[#121212] border border-white/20 w-full max-w-2xl shadow-2xl p-2">
           <div className="p-6 border-b border-white/10 text-center">
             <h2 className="text-white text-2xl font-light tracking-[0.3em] uppercase">
               Editar Proposta
@@ -132,7 +132,7 @@ export default function GarageProposalModal({
               <Button
                 texto={loading ? "Processando..." : "Salvar Alterações"}
                 type="submit"
-                className="w-full"
+                className="w-full font-bold"
               />
               <Button
                 texto="Cancelar"
@@ -154,7 +154,7 @@ export default function GarageProposalModal({
       </div>
       {showDeleteConfirm ? (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-[#121212] border border-white/20 p-6 max-w-md w-full">
+          <div className="bg-[#121212] border border-white/20 p-6! max-w-md w-full">
             <p className="text-white mb-6">Deseja excluir esta proposta?</p>
             <div className="flex justify-end gap-3">
               <button

@@ -127,3 +127,36 @@ export interface CardGarageProps {
   favoriteId?: string;
   date_offer?: string;
 }
+
+// testDrive Props
+ 
+export interface TestDriveData {
+  id: string;
+  scheduledAt: string;
+  createdAt: string;
+  updatedAt: string;
+  status: 'Pendente' | 'Confirmado' | 'Cancelado' | 'Realizado';
+  message: string | null;
+  carId: string;
+  userId: string;
+  car?: {
+    name: string;
+    model: string;
+    images?: Array<{ url: string }>;
+  };
+}
+
+export interface TestDriveCardProps {
+  agendamento: TestDriveData;
+  onDeleteSuccess: () => void;
+}
+
+export interface TestDriveModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  carId: string;
+  userId: string;
+  onSuccess: (message: string) => void;
+  onError: (message: string) => void;
+  
+}

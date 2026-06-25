@@ -60,7 +60,7 @@ export default function ProposalModal({
         onClose={() => setNotification(null)}
       />
       <div className="fixed inset-0 bg-black/20  flex items-center justify-center z-50 p-4">
-        <div className="bg-[#121212] border border-white/20 w-full max-w-4xl shadow-2xl">
+        <div className="bg-[#121212] border border-white/20 w-full max-w-4xl shadow-2xl p-2">
           <div className="p-6 border-b border-white/10 text-center">
             <h2 className="text-white text-2xl font-light tracking-[0.3em] uppercase">
               Proposta
@@ -97,7 +97,7 @@ export default function ProposalModal({
               <Button
                 texto={loading ? "Enviando..." : "Confirmar Proposta"}
                 type="submit"
-                className="text-gray-50"
+                className="text-gray-50 font-bold"
               />
               <Button
                 texto="Cancelar"

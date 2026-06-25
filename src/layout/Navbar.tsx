@@ -31,7 +31,7 @@ export default function Navbar() {
 
         <div className="flex-1 flex justify-center m-0">
           <Link to="/">
-            <img src={Logo} alt="logo" className="size-22 w-full" />
+            <img src={Logo} alt="logo"  className="size-40 w-full" />
           </Link>
         </div>
 
